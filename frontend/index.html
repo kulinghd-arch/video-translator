@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Translator - Dịch Video & Tạo Giọng Đọc</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 Video Translator</h1>
+            <p>Dịch video từ Tiếng Trung sang Tiếng Việt/Tiếng Thái với giọng đọc chuẩn</p>
+        </header>
+
+        <main>
+            <section class="upload-section">
+                <h2>📤 Tải Video Lên</h2>
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="videoFile" accept="video/*" style="display: none;">
+                    <p>Kéo thả video vào đây hoặc <a href="#" onclick="document.getElementById('videoFile').click(); return false;">chọn file</a></p>
+                    <small>Hỗ trợ: MP4, AVI, MOV, MKV (tối đa 500MB)</small>
+                </div>
+                <div id="uploadStatus" class="status"></div>
+            </section>
+
+            <section class="config-section">
+                <h2>⚙️ Cấu Hình</h2>
+                <div class="config-group">
+                    <label for="targetLanguage">Dịch sang ngôn ngữ:</label>
+                    <select id="targetLanguage">
+                        <option value="vi">Tiếng Việt</option>
+                        <option value="th">ไทย (Tiếng Thái)</option>
+                    </select>
+                </div>
+                <button id="processBtn" class="btn btn-primary" disabled>
+                    ▶️ Xử Lý Video
+                </button>
+            </section>
+
+            <section class="progress-section" id="progressSection" style="display: none;">
+                <h2>⏳ Đang Xử Lý...</h2>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p id="progressText">Bước 1/4: Nhận dạng văn bản (OCR)...</p>
+            </section>
+
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <h2>✅ Hoàn Thành</h2>
+                <div class="result-info">
+                    <p id="resultMessage"></p>
+                    <a id="downloadBtn" href="#" class="btn btn-success" download>
+                        ⬇️ Tải Video Đã Dịch
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Made with ❤️ by Video Translator Team</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
